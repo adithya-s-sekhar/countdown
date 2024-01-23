@@ -5,6 +5,8 @@ function App() {
   const [currDate, setCurrDate] = useState(Date.now());
   const [dateTime, setDateTime] = useState(Date.parse('2024-01-25T15:00'));
 
+  const [showMs, setShowMs] = useState(false);
+
   function handleTime(e){
     setDateTime(Date.parse(e.target.value))
   }
@@ -31,15 +33,23 @@ function App() {
     }
   }
 
+  function toggleShowMs(){
+    setShowMs(!showMs);
+  }
+
   function formatMilliseconds(milliseconds){
     let seconds = Math.trunc(milliseconds/1000);
-    // let extraMilliseconds = addZeroIfUnderHundred(Math.trunc(milliseconds%1000));
+    let extraMilliseconds;
+    if (showMs) {extraMilliseconds = addZeroIfUnderHundred(Math.trunc(milliseconds%1000))}
     let minutes = Math.trunc(seconds/60);
     let extraSeconds = addZeroIfUnderTen(Math.trunc(seconds%60));
     let hours = addZeroIfUnderTen(Math.trunc(minutes/60));
     let extraMinutes = addZeroIfUnderTen(Math.trunc(minutes%60));
-    // return([hours,extraMinutes,extraSeconds,extraMilliseconds]);
-    return([hours,extraMinutes,extraSeconds]);
+    if (showMs) {return([hours,extraMinutes,extraSeconds,extraMilliseconds])}
+    else {
+      return([hours,extraMinutes,extraSeconds])
+    }
+
   }
 
   let milliseconds = dateTime - currDate;
@@ -51,7 +61,11 @@ function App() {
   return (
     <div className="app">
       <div className="display">
+        {console.log(display)}
         {display.map((value,index) => <div key={index}>{value}</div>)}
+      </div>
+      <div>
+        <button className={`button ${showMs ? 'enabled' : 'disabled'}`} onClick={toggleShowMs}>{showMs ? 'Hide' : 'Show'} Ms</button>
       </div>
       <form onSubmit={(e) => e.preventDefault()}>
         <label htmlFor='time'>Enter time</label>
