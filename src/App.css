@@ -27,7 +27,7 @@
 }
 
 .display > div:last-child{
-    animation-name: opacity;
+    animation-name: bgcolor;
     animation-duration: 1s;
     animation-timing-function: ease-out;
     animation-iteration-count: infinite;
@@ -45,6 +45,12 @@
     100% { opacity: 100% }
 }
 
+@keyframes bgcolor{
+    0% { background-color: #d59029 }
+    50% { background-color: #e5a545 }
+    100% { background-color: #d59029 }
+}
+
 .button{
     border: 0;
     font-size: 16px;
@@ -54,12 +60,12 @@
     box-shadow: 0 10px 10px -8px rgba(0,0,0,0.75);
 }
 
-.button.enabled{
+.button.disabled{
     background-color: #fff;
     color: #000;
 }
 
-.button.disabled{
+.button.enabled{
     background-color: #d59029;
     color: #fff;
 }

@@ -24,10 +24,10 @@ function App() {
   }
 
   function addZeroIfUnderHundred(value){
-    if(value<100){
-      return '0'+value;
-    } else if(value<10){
+    if(value<10){
       return '00'+value;
+    } else if(value<100){
+      return '0'+value;
     } else{
       return value;
     }
