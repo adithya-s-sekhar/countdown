@@ -70,3 +70,15 @@
     background-color: #d59029;
     color: #fff;
 }
+
+.speed-controls{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.speed-buttons{
+    display: flex;
+    gap: 10px;
+}
