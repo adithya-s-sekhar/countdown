@@ -23,4 +23,18 @@
     align-items: center;
     justify-content: center;
     border-radius: 8px;
+    box-shadow: 0 10px 10px -8px rgba(0,0,0,0.75);
+}
+
+.display > div:last-child{
+    animation-name: shadow;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shadow{
+    0% { box-shadow: 0 10px 10px -8px rgba(0,0,0,0.75); transform: scale(1);}
+    50% { box-shadow: 0 6px 10px -8px rgba(0,0,0,0.75); transform: scale(.96);}
+    100% { box-shadow: 0 10px 10px -8px rgba(0,0,0,0.75); transform: scale(1);}
 }

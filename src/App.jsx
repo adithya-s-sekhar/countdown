@@ -33,12 +33,13 @@ function App() {
 
   function formatMilliseconds(milliseconds){
     let seconds = Math.trunc(milliseconds/1000);
-    let extraMilliseconds = addZeroIfUnderHundred(Math.trunc(milliseconds%1000));
+    // let extraMilliseconds = addZeroIfUnderHundred(Math.trunc(milliseconds%1000));
     let minutes = Math.trunc(seconds/60);
     let extraSeconds = addZeroIfUnderTen(Math.trunc(seconds%60));
     let hours = addZeroIfUnderTen(Math.trunc(minutes/60));
     let extraMinutes = addZeroIfUnderTen(Math.trunc(minutes%60));
-    return([hours,extraMinutes,extraSeconds,extraMilliseconds]);
+    // return([hours,extraMinutes,extraSeconds,extraMilliseconds]);
+    return([hours,extraMinutes,extraSeconds]);
   }
 
   let milliseconds = dateTime - currDate;
@@ -50,7 +51,7 @@ function App() {
   return (
     <div className="app">
       <div className="display">
-        {display.map(value => <div>{value}</div>)}
+        {display.map((value,index) => <div key={index}>{value}</div>)}
       </div>
       <form onSubmit={(e) => e.preventDefault()}>
         <label htmlFor='time'>Enter time</label>
