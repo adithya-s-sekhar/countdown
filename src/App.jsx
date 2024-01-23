@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import { useEffect } from 'react';
 
 function App() {
   const [currDate, setCurrDate] = useState(Date.now());
@@ -11,9 +12,12 @@ function App() {
     setDateTime(Date.parse(e.target.value))
   }
 
-  setInterval(() => {
-    setCurrDate(Date.now());
-  }, 1000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrDate(Date.now());
+    }, 10);
+    return () => clearInterval(interval);
+  },[])
 
   function addZeroIfUnderTen(value){
     if(value<10){
