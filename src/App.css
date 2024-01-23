@@ -9,7 +9,7 @@
 .display{
     display: flex;
     font-weight: bold;
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
     font-size: 40px;
     gap: 10px;
 }
