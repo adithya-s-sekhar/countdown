@@ -48,7 +48,7 @@
 
 @keyframes bgcolor{
     0% { background-color: #d59029 }
-    50% { background-color: #e5a545 }
+    50% { background-color: #e4aa54 }
     100% { background-color: #d59029 }
 }
 
@@ -80,7 +80,6 @@
     flex-direction: column;
     border-radius: 8px;
     padding: 24px;
-    border: 1px solid #333;
     text-align: center;
 }
 
