@@ -70,7 +70,7 @@
 .button.enabled{
     background-color: #d59029;
     color: #fff;
-    animation: shadow .25s ease-out;
+    animation: shadow .20s ease-out;
 }
 
 .speed-controls{
