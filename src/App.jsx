@@ -77,7 +77,7 @@ function App() {
       <div>
         <button className={`button ${showMs ? 'enabled' : 'disabled'}`} onClick={toggleShowMs}>{showMs ? 'Hide' : 'Show'} ms</button>
       </div>
-      <div className='speed-controls' style={{visibility: `${showMs ? 'visible' : 'hidden'}`}}>
+      <div className='speed-controls' style={{visibility: `${showMs ? 'visible' : 'hidden'}`, height: `${showMs ? 'auto' : '0'}`}}>
         <h2>Millisecond update speed</h2>
         <div className="speed-buttons">
           <button className={`button ${msUpdateSpeed === 1 ? 'enabled' : 'disabled'}`} onClick={() => setUpdateSpeed(1)}>1ms</button>
