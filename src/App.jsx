@@ -61,11 +61,19 @@ function App() {
 
   }
 
+  function enableIfMsUpdateSpeed(value){
+    if (value === msUpdateSpeed) {
+      return 'enabled'
+    } else {
+      return 'disabled'
+    }
+  }
+
   let milliseconds = dateTime - currDate;
 
   let display = formatMilliseconds(milliseconds);
 
-  const titles = ['Hours', 'Minutes', 'Seconds', 'Milliseconds']
+  const titles = ['Hours', 'Minutes', 'Seconds', 'Milliseconds'];
 
   document.title = `${display[0]}:${display[1]}:${display[2]}`;
 
@@ -80,10 +88,10 @@ function App() {
       <div className='speed-controls' style={{visibility: `${showMs ? 'visible' : 'hidden'}`, height: `${showMs ? 'auto' : '0'}`}}>
         <h2>Millisecond update speed</h2>
         <div className="speed-buttons">
-          <button className={`button ${msUpdateSpeed === 1 ? 'enabled' : 'disabled'}`} onClick={() => setUpdateSpeed(1)}>1ms</button>
-          <button className={`button ${msUpdateSpeed === 10 ? 'enabled' : 'disabled'}`} onClick={() => setUpdateSpeed(10)}>10ms</button>
-          <button className={`button ${msUpdateSpeed === 100 ? 'enabled' : 'disabled'}`} onClick={() => setUpdateSpeed(100)}>100ms</button>
-          <button className={`button ${msUpdateSpeed === 1000 ? 'enabled' : 'disabled'}`} onClick={() => setUpdateSpeed(1000)}>1000ms</button>
+          <button className={`button ${enableIfMsUpdateSpeed(1)}`} onClick={() => setUpdateSpeed(1)}>1ms</button>
+          <button className={`button ${enableIfMsUpdateSpeed(10)}`} onClick={() => setUpdateSpeed(10)}>10ms</button>
+          <button className={`button ${enableIfMsUpdateSpeed(100)}`} onClick={() => setUpdateSpeed(100)}>100ms</button>
+          <button className={`button ${enableIfMsUpdateSpeed(1000)}`} onClick={() => setUpdateSpeed(1000)}>1000ms</button>
         </div>
       </div>
       <form onSubmit={(e) => e.preventDefault()}>
