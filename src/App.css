@@ -9,7 +9,6 @@
 .display{
     display: flex;
     font-weight: bold;
-    /* font-family: sans-serif; */
     font-size: 40px;
     gap: 10px;
 }
@@ -42,7 +41,7 @@
 
 @keyframes opacity{
     0% { opacity: 100% }
-    50% { opacity: 90% }
+    50% { opacity: 50% }
     100% { opacity: 100% }
 }
 
@@ -70,6 +69,7 @@
 .button.enabled{
     background-color: #d59029;
     color: #fff;
+    animation: shadow .25s ease-out;
 }
 
 .speed-controls{
