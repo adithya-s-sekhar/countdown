@@ -65,12 +65,14 @@ function App() {
 
   let display = formatMilliseconds(milliseconds);
 
+  const titles = ['Hours', 'Minutes', 'Seconds', 'Milliseconds']
+
   document.title = `${display[0]}:${display[1]}:${display[2]}`;
 
   return (
     <div className="app">
       <div className="display">
-        {display.map((value,index) => <div key={index}>{value}</div>)}
+        {display.map((value,index) => <div key={index} className='display-item'><div className='display-value'>{value}</div><div className='display-title'>{titles[index]}</div></div>)}
       </div>
       <div>
         <button className={`button ${showMs ? 'enabled' : 'disabled'}`} onClick={toggleShowMs}>{showMs ? 'Hide' : 'Show'} ms</button>
