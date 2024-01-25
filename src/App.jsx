@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setTargetTime, setMsUpdateSpeed } from './features/countdown/countdownSlice';
@@ -55,7 +55,9 @@ function App() {
       </div>
       <div>
         <button
-          className={`button ${enableIfSame(showMs, true)}`} 
+          className={
+            `button ${enableIfSame(showMs, true)}`
+          } 
           onClick={toggleShowMs}
         >
           {showMs ? 'Hide' : 'Show'} ms
@@ -73,7 +75,9 @@ function App() {
           {
             msPeriods.map(value => (
               <button
-                className={`button ${enableIfSame(value, msUpdateSpeed)}`}
+                className={
+                  `button ${enableIfSame(value, msUpdateSpeed)}`
+                }
                 onClick={() => handleMsUpdateSpeed(value)}
               >
                 {value}ms
