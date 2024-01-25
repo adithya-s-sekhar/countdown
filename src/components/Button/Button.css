@@ -1,0 +1,37 @@
+.button {
+  border: 0;
+  font-size: 16px;
+  padding: 16px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.75);
+}
+
+.button.disabled {
+  background-color: #fff;
+  color: #000;
+}
+
+.button.enabled {
+  background-color: #d59029;
+  color: #fff;
+  animation: shadow .20s ease-out;
+}
+
+@keyframes shadow {
+  0% {
+    box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.75);
+    transform: scale(1);
+  }
+
+  50% {
+    box-shadow: 0 6px 10px -8px rgba(0, 0, 0, 0.75);
+    transform: scale(.96);
+  }
+
+  100% {
+    box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.75);
+    transform: scale(1);
+  }
+}

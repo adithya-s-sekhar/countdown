@@ -1,0 +1,46 @@
+.display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 30px;
+  gap: 10px;
+}
+
+.display>div {
+  padding: 20px;
+  background-color: #d59029;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.75);
+}
+
+.display>div:last-child {
+  animation-name: bgcolor;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+}
+
+.display-title {
+  font-size: 11px;
+  opacity: .7;
+}
+
+@keyframes bgcolor {
+  0% {
+    background-color: #d59029
+  }
+
+  50% {
+    background-color: #e4aa54
+  }
+
+  100% {
+    background-color: #d59029
+  }
+}

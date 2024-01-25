@@ -1,0 +1,14 @@
+.speed-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+}
+
+.speed-buttons {
+  display: flex;
+  gap: 10px;
+}
