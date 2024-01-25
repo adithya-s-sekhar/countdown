@@ -20,9 +20,9 @@ export function formatMilliseconds(ms) {
   if (ms < 0) {
     return [
       {'value': 0, 'label': 'Hours'}, 
-      {'value': 0, 'label': 'Minutes'}, 
-      {'value': 0, 'label': 'Seconds'}, 
-      {'value': 0, 'label': 'Milliseconds'}
+      {'value': '00', 'label': 'Minutes'}, 
+      {'value': '00', 'label': 'Seconds'}, 
+      {'value': '000', 'label': 'Milliseconds'}
     ];
   }
 
