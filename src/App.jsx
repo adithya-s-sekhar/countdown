@@ -1,104 +1,109 @@
 import { useState } from 'react'
 import './App.css'
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setTargetTime, setMsUpdateSpeed } from './features/countdown/countdownSlice';
+import { useSelector } from 'react-redux';
+import { enableIfSame, formatMilliseconds } from './utils/functions';
 
 function App() {
-  const [currDate, setCurrDate] = useState(Date.now());
-  const [dateTime, setDateTime] = useState(Date.parse('2024-01-25T15:00'));
-  const [msUpdateSpeed, setMsUpdateSpeed] = useState(1000);
+  const targetTime = useSelector(state => state.countdown?.targetTime);
+  const msUpdateSpeed = useSelector(state => state.countdown?.msUpdateSpeed);
 
+  const [currDate, setCurrDate] = useState(Date.now());
   const [showMs, setShowMs] = useState(false);
 
-  function handleTime(e){
-    setDateTime(Date.parse(e.target.value))
+  const dispatch = useDispatch();
+
+  const titles = ['Hours', 'Minutes', 'Seconds', 'Milliseconds'];
+
+  function handleTargetTime(e) {
+    dispatch(setTargetTime(Date.parse(e.target.value)));
   }
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrDate(Date.now());
-    }, msUpdateSpeed);
-    return () => clearInterval(interval);
-  },[msUpdateSpeed])
-
-  function addZeroIfUnderTen(value){
-    if(value<10){
-      return '0'+value;
-    } else{
-      return value;
-    }
+  function handleMsUpdateSpeed(value){
+    dispatch(setMsUpdateSpeed(value));
   }
 
-  function addZeroIfUnderHundred(value){
-    if(value<10){
-      return '00'+value;
-    } else if(value<100){
-      return '0'+value;
-    } else{
-      return value;
-    }
-  }
-
-  function toggleShowMs(){
+  function toggleShowMs() {
     setShowMs(!showMs);
   }
 
-  function setUpdateSpeed(value){
-    setMsUpdateSpeed(value);
-  }
+  useEffect(() => {
+    const interval = setInterval(
+      () => { setCurrDate(Date.now()); }, msUpdateSpeed
+    );
+    return () => clearInterval(interval);
+  }, [msUpdateSpeed]);
 
-  function formatMilliseconds(milliseconds){
-    let seconds = Math.trunc(milliseconds/1000);
-    let extraMilliseconds;
-    if (showMs) {extraMilliseconds = addZeroIfUnderHundred(Math.trunc(milliseconds%1000))}
-    let minutes = Math.trunc(seconds/60);
-    let extraSeconds = addZeroIfUnderTen(Math.trunc(seconds%60));
-    let hours = addZeroIfUnderTen(Math.trunc(minutes/60));
-    let extraMinutes = addZeroIfUnderTen(Math.trunc(minutes%60));
-    if (showMs) {return([hours,extraMinutes,extraSeconds,extraMilliseconds])}
-    else {
-      return([hours,extraMinutes,extraSeconds])
-    }
+  let difference = targetTime - currDate;
 
-  }
-
-  function enableIfMsUpdateSpeed(value){
-    if (value === msUpdateSpeed) {
-      return 'enabled'
-    } else {
-      return 'disabled'
-    }
-  }
-
-  let milliseconds = dateTime - currDate;
-
-  let display = formatMilliseconds(milliseconds);
-
-  const titles = ['Hours', 'Minutes', 'Seconds', 'Milliseconds'];
+  let display = formatMilliseconds(difference);
 
   document.title = `${display[0]}:${display[1]}:${display[2]}`;
 
   return (
     <div className="app">
       <div className="display">
-        {display.map((value,index) => <div key={index} className='display-item'><div className='display-value'>{value}</div><div className='display-title'>{titles[index]}</div></div>)}
+        {display.slice(0, (showMs ? 4 : 3)).map((value, index) => (
+          <div key={index} className='display-item'>
+            <div className='display-value'>{value}</div>
+            <div className='display-title'>{titles[index]}</div>
+          </div>
+        ))}
       </div>
       <div>
-        <button className={`button ${showMs ? 'enabled' : 'disabled'}`} onClick={toggleShowMs}>{showMs ? 'Hide' : 'Show'} ms</button>
+        <button
+          className={`button ${enableIfSame(showMs, true)}`} 
+          onClick={toggleShowMs}
+        >
+          {showMs ? 'Hide' : 'Show'} ms
+        </button>
       </div>
-      <div className='speed-controls' style={{visibility: `${showMs ? 'visible' : 'hidden'}`, height: `${showMs ? 'auto' : '0'}`}}>
+      <div
+        className='speed-controls'
+        style={{ 
+          visibility: `${showMs ? 'visible' : 'hidden'}`, 
+          height: `${showMs ? 'auto' : '0'}` 
+        }}
+      >
         <h2>Millisecond update speed</h2>
         <div className="speed-buttons">
-          <button className={`button ${enableIfMsUpdateSpeed(1)}`} onClick={() => setUpdateSpeed(1)}>1ms</button>
-          <button className={`button ${enableIfMsUpdateSpeed(10)}`} onClick={() => setUpdateSpeed(10)}>10ms</button>
-          <button className={`button ${enableIfMsUpdateSpeed(100)}`} onClick={() => setUpdateSpeed(100)}>100ms</button>
-          <button className={`button ${enableIfMsUpdateSpeed(1000)}`} onClick={() => setUpdateSpeed(1000)}>1000ms</button>
+          <button
+            className={`button ${enableIfSame(1,msUpdateSpeed)}`}
+            onClick={() => handleMsUpdateSpeed(1)}
+          >
+            1ms
+          </button>
+          <button
+            className={`button ${enableIfSame(10,msUpdateSpeed)}`}
+            onClick={() => handleMsUpdateSpeed(10)}
+          >
+            10ms
+          </button>
+          <button
+            className={`button ${enableIfSame(100,msUpdateSpeed)}`}
+            onClick={() => handleMsUpdateSpeed(100)}
+          >
+            100ms
+          </button>
+          <button
+            className={`button ${enableIfSame(1000,msUpdateSpeed)}`}
+            onClick={() => handleMsUpdateSpeed(1000)}
+          >
+            1000ms
+          </button>
         </div>
       </div>
       <form onSubmit={(e) => e.preventDefault()}>
-        <label htmlFor='time'>Enter time</label>
+        <label
+          htmlFor='time'
+        >
+          Enter time
+        </label>
         <input
           type="datetime-local"
-          onChange={(e) => handleTime(e)}
+          onChange={(e) => handleTargetTime(e)}
           id="time"
         />
       </form>
