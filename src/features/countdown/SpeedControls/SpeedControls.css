@@ -1,4 +1,4 @@
-.speed-controls {
+.speed-controls{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,4 +11,14 @@
 .speed-buttons {
   display: flex;
   gap: 10px;
+}
+
+.speed-controls.enabled{
+  visibility: visible;
+  height: auto;
+}
+
+.speed-controls.disabled{
+  visibility: hidden;
+  height: 0;
 }

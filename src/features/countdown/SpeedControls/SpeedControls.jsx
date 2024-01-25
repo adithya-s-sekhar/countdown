@@ -19,11 +19,7 @@ function SpeedControls(){
 
   return (
     <div
-      className='speed-controls'
-      style={{ 
-        visibility: `${showMs ? 'visible' : 'hidden'}`, 
-        height: `${showMs ? 'auto' : '0'}` 
-      }}
+      className={`speed-controls ${enableIfSame(showMs, true)}`}
     >
       <h2>Millisecond update speed</h2>
       <div className="speed-buttons">
