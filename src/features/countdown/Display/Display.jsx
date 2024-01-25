@@ -33,7 +33,7 @@ function Display(){
           .map((item, index) => (
             <div key={index} className='display-item'>
               <div className='display-value'>{item.value}</div>
-              <div className='display-title'>{item.label}</div>
+              <div className='display-label'>{item.label}</div>
             </div>
         ))}
       </div>
