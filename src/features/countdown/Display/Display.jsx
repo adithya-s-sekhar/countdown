@@ -25,8 +25,6 @@ function Display(){
 
   const formattedTime = formatMilliseconds(targetTime - currentTime);
 
-  document.title = `${formattedTime[0]}:${formattedTime[1]}:${formattedTime[2]}`;
-
   return (
     <>
       <div className="display">
