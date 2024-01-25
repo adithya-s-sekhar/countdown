@@ -16,6 +16,7 @@ function App() {
   const dispatch = useDispatch();
 
   const titles = ['Hours', 'Minutes', 'Seconds', 'Milliseconds'];
+  const msPeriods = [1, 10, 100, 1000];
 
   function handleTargetTime(e) {
     dispatch(setTargetTime(Date.parse(e.target.value)));
@@ -69,30 +70,16 @@ function App() {
       >
         <h2>Millisecond update speed</h2>
         <div className="speed-buttons">
-          <button
-            className={`button ${enableIfSame(1,msUpdateSpeed)}`}
-            onClick={() => handleMsUpdateSpeed(1)}
-          >
-            1ms
-          </button>
-          <button
-            className={`button ${enableIfSame(10,msUpdateSpeed)}`}
-            onClick={() => handleMsUpdateSpeed(10)}
-          >
-            10ms
-          </button>
-          <button
-            className={`button ${enableIfSame(100,msUpdateSpeed)}`}
-            onClick={() => handleMsUpdateSpeed(100)}
-          >
-            100ms
-          </button>
-          <button
-            className={`button ${enableIfSame(1000,msUpdateSpeed)}`}
-            onClick={() => handleMsUpdateSpeed(1000)}
-          >
-            1000ms
-          </button>
+          {
+            msPeriods.map(value => (
+              <button
+                className={`button ${enableIfSame(value, msUpdateSpeed)}`}
+                onClick={() => handleMsUpdateSpeed(value)}
+              >
+                {value}ms
+              </button>
+            ))
+          }
         </div>
       </div>
       <form onSubmit={(e) => e.preventDefault()}>
@@ -111,4 +98,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
