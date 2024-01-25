@@ -1,14 +1,15 @@
 .display {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 2rem;
   gap: 10px;
 }
 
 .display>div {
-  padding: 20px;
+  flex-shrink: 1;
+  width: 5rem;
+  height: 5rem;
   background-color: #d59029;
   color: #fff;
   display: flex;

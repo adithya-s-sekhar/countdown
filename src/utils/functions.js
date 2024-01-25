@@ -23,7 +23,12 @@ export function formatMilliseconds(ms) {
   let extraSeconds = addZeroIfUnderTen(Math.trunc(seconds % 60));
   let hours = addZeroIfUnderTen(Math.trunc(minutes / 60));
   let extraMinutes = addZeroIfUnderTen(Math.trunc(minutes % 60));
-  return [hours, extraMinutes, extraSeconds, extraMs];
+  return [
+    {'value': hours, 'label': 'Hours'}, 
+    {'value': extraMinutes, 'label': 'Minutes'}, 
+    {'value': extraSeconds, 'label': 'Seconds'}, 
+    {'value': extraMs, 'label': 'Milliseconds'}
+  ];
 }
 
 export function enableIfSame(value, target){

@@ -34,10 +34,10 @@ function Display(){
       <div className="display">
         {formattedTime
           .slice(0, (showMs ? formattedTime.length : formattedTime.length-1))
-          .map((value, index) => (
+          .map((item, index) => (
             <div key={index} className='display-item'>
-              <div className='display-value'>{value}</div>
-              <div className='display-title'>{titles[index]}</div>
+              <div className='display-value'>{item.value}</div>
+              <div className='display-title'>{item.label}</div>
             </div>
         ))}
       </div>
