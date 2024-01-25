@@ -1,3 +1,4 @@
+import "./TargetTimeInput.css";
 import { useDispatch } from "react-redux";
 import { setTargetTime } from "../countdownSlice";
 
@@ -13,12 +14,13 @@ function TargetTimeInput() {
       <label
         htmlFor='time'
       >
-        Enter time
+        Enter time:
       </label>
       <input
         type="datetime-local"
         onChange={(e) => handleTargetTime(e)}
         id="time"
+        autoFocus
       />
     </form>
   )

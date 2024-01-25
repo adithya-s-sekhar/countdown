@@ -17,6 +17,15 @@ function addZeroIfUnderHundred(value) {
 }
 
 export function formatMilliseconds(ms) {
+  if (ms < 0) {
+    return [
+      {'value': 0, 'label': 'Hours'}, 
+      {'value': 0, 'label': 'Minutes'}, 
+      {'value': 0, 'label': 'Seconds'}, 
+      {'value': 0, 'label': 'Milliseconds'}
+    ];
+  }
+
   let seconds = Math.trunc(ms / 1000);
   let extraMs = addZeroIfUnderHundred(Math.trunc(ms % 1000))
   let minutes = Math.trunc(seconds / 60);
