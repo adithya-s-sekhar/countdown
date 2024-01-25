@@ -16,8 +16,6 @@ function Display(){
 
   const dispatch = useDispatch();
 
-  const titles = ['Hours', 'Minutes', 'Seconds', 'Milliseconds'];
-
   useEffect(() => {
     const interval = setInterval(
       () => { setCurrentTime(Date.now()); }, msUpdateSpeed
