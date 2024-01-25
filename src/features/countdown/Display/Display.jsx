@@ -32,11 +32,13 @@ function Display(){
   return (
     <>
       <div className="display">
-        {formattedTime.slice(0, (showMs ? 4 : 3)).map((value, index) => (
-          <div key={index} className='display-item'>
-            <div className='display-value'>{value}</div>
-            <div className='display-title'>{titles[index]}</div>
-          </div>
+        {formattedTime
+          .slice(0, (showMs ? formattedTime.length : formattedTime.length-1))
+          .map((value, index) => (
+            <div key={index} className='display-item'>
+              <div className='display-value'>{value}</div>
+              <div className='display-title'>{titles[index]}</div>
+            </div>
         ))}
       </div>
       <div>
