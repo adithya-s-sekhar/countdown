@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const countdownSlice = createSlice({
   name: 'countdown',
-  initialState: { targetTime: 1706184000000, msUpdateSpeed: 1, showMs: false },
+  initialState: { targetTime: 1706866200000, msUpdateSpeed: 1, showMs: false },
   reducers: {
     setTargetTime(state, action) {
       state['targetTime'] = action.payload;
