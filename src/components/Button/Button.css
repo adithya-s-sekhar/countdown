@@ -10,13 +10,13 @@
 }
 
 .button.disabled {
-  background-color: #fff;
-  color: #000;
+  background-color: var(--button-disabled-background-color);
+  color: var(--button-disabled-font-color);
 }
 
 .button.enabled {
-  background-color: #3d3d3d;
-  color: #fff;
+  background-color: var(--button-enabled-background-color);
+  color: var(--button-enabled-font-color);
   animation: shadow .20s ease-out;
 }
 
