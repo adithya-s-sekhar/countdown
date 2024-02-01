@@ -15,8 +15,7 @@
   justify-content: center;
   flex-direction: column;
   border-radius: 8px;
-  border-bottom: 5px solid var(--accent);
-  box-shadow: 0 15px 10px -8px var(--accent-with-alpha);
+  box-shadow: 0 15px 10px -8px var(--shadow-color);
 }
 
 .display>div:last-child {

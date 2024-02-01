@@ -19,23 +19,23 @@
   background-color: var(--button-enabled-background-color);
   color: var(--button-enabled-font-color);
   animation: shadow .20s ease-out;
-  box-shadow: 0 13px 10px -8px var(--accent-with-alpha);
-  border-bottom: 4px solid var(--accent);
+  box-shadow: 0 13px 10px -8px var(--shadow-color);
+  border-bottom: 5px solid var(--accent);
 }
 
 @keyframes shadow {
   0% {
-    box-shadow: 0 13px 10px -8px var(--accent-with-alpha);
+    box-shadow: 0 13px 10px -8px var(--shadow-color);
     transform: scale(1);
   }
 
   50% {
-    box-shadow: 0 10px 10px -8px var(--accent-with-alpha);
+    box-shadow: 0 10px 10px -8px var(--shadow-color);
     transform: scale(.96);
   }
 
   100% {
-    box-shadow: 0 13px 10px -8px var(--accent-with-alpha);
+    box-shadow: 0 13px 10px -8px var(--shadow-color);
     transform: scale(1);
   }
 }
