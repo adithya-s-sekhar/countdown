@@ -1,8 +1,8 @@
 .button {
   border: 0;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
-  padding: 16px 8px;
+  padding: 12px 8px;
   border-radius: 8px;
   cursor: pointer;
   font-family: var(--button-font);
@@ -12,17 +12,20 @@
 .button.disabled {
   background-color: var(--button-disabled-background-color);
   color: var(--button-disabled-font-color);
+  box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.75);
 }
 
 .button.enabled {
   background-color: var(--button-enabled-background-color);
   color: var(--button-enabled-font-color);
   animation: shadow .20s ease-out;
+  box-shadow: 0 15px 10px -8px rgba(236, 106, 106, 0.75);
+  border-bottom: 5px solid rgb(236, 106, 106);
 }
 
 @keyframes shadow {
   0% {
-    box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 10px 10px -8px rgba(236, 106, 106, 0.75);
     transform: scale(1);
   }
 
@@ -32,7 +35,7 @@
   }
 
   100% {
-    box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 10px 10px -8px rgba(236, 106, 106, 0.75);
     transform: scale(1);
   }
 }
