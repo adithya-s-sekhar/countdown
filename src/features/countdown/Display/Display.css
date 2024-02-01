@@ -26,15 +26,14 @@
 }
 
 .display-item{
-  font-weight: bold;
-  font-size: 2rem;
+  font-size: 30px;
   font-family: var(--display-item-font);
 }
 
 .display-label {
   font-size: 11px;
   opacity: .7;
-  font-weight: normal;
+  font-weight: 500;
   font-family: var(--display-label-font);
 }
 

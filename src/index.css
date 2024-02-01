@@ -8,6 +8,7 @@
   --body-font-color: rgb(46, 46, 46);
 
   /* Button */
+  --button-font: 'Inter', sans-serif;
   --button-enabled-background-color: #3d3d3d;
   --button-enabled-font-color: rgb(240, 240, 240);
   --button-disabled-background-color: rgb(240, 240, 240);

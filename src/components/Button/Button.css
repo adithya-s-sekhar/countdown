@@ -5,7 +5,7 @@
   padding: 16px 8px;
   border-radius: 8px;
   cursor: pointer;
-  font-family: inherit;
+  font-family: var(--button-font);
   box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.75);
 }
 
