@@ -7,6 +7,10 @@
   --body-background-color: rgb(240, 240, 240);
   --body-font-color: rgb(46, 46, 46);
 
+  /* Accents */
+  --accent: rgb(255, 131, 131);
+  --accent-with-alpha: rgba(255, 131, 131, 0.75);
+
   /* Button */
   --button-font: 'Inter', sans-serif;
   --button-enabled-background-color: #3d3d3d;
