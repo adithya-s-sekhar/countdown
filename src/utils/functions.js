@@ -47,3 +47,13 @@ export function enableIfSame(value, target){
     return 'disabled';
   }
 }
+
+export function msToHumanDate(ms){
+  const d = new Date(ms);
+  
+  return d.getFullYear()
+    + '-' + addZeroIfUnderTen(d.getMonth())
+    + '-' + addZeroIfUnderTen(d.getDate())
+    + 'T' + addZeroIfUnderTen(d.getHours())
+    + ':' + addZeroIfUnderTen(d.getMinutes())
+}
