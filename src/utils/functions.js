@@ -50,9 +50,9 @@ export function enableIfSame(value, target){
 
 export function msToHumanDate(ms){
   const d = new Date(ms);
-  
+
   return d.getFullYear()
-    + '-' + addZeroIfUnderTen(d.getMonth())
+    + '-' + addZeroIfUnderTen(d.getMonth()+1) // Months start from 0, while dates don't. Go figure.
     + '-' + addZeroIfUnderTen(d.getDate())
     + 'T' + addZeroIfUnderTen(d.getHours())
     + ':' + addZeroIfUnderTen(d.getMinutes())
