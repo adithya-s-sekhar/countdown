@@ -5,16 +5,18 @@
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
+  font-family: inherit;
   box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.75);
 }
 
 .button.disabled {
+  font-weight: normal;
   background-color: #fff;
   color: #000;
 }
 
 .button.enabled {
-  background-color: #d59029;
+  background-color: #3d3d3d;
   color: #fff;
   animation: shadow .20s ease-out;
 }
