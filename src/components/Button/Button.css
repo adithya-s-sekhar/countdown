@@ -12,6 +12,7 @@
 .button.disabled {
   background-color: var(--button-disabled-background-color);
   color: var(--button-disabled-font-color);
+  animation: buttonOff .2s ease-out;
   box-shadow: 0 13px 10px -8px rgba(0, 0, 0, 0.75);
   border-bottom: 5px solid var(--button-enabled-background-color);
 }
@@ -19,21 +20,39 @@
 .button.enabled {
   background-color: var(--button-enabled-background-color);
   color: var(--button-enabled-font-color);
-  animation: shadow .20s ease-out;
+  animation: buttonOn .2s ease-out;
   box-shadow: 0 10px 10px -8px var(--shadow-color);
   border-top: 5px solid var(--accent);
 }
 
-@keyframes shadow {
-  0% {
-    font-size: 14px;
-  }
+.button.no-animation.disabled {
+  animation: none;
+  border-bottom: 0;
+  font-size: 14px;
+}
 
-  50% {
-    font-size: 12px;
+.button.no-animation.enabled {
+  animation: none;
+  border-top: 0;
+  font-size: 14px;
+}
+
+@keyframes buttonOn {
+  0% {
+    border-top: 1px solid var(--accent);
   }
 
   100% {
-    font-size: 14px;
+    border-top: 5px solid var(--accent);
+  }
+}
+
+@keyframes buttonOff {
+  0% {
+    border-bottom: 1px solid var(--button-enabled-background-color);
+  }
+
+  100% {
+    border-bottom: 5px solid var(--button-enabled-background-color);
   }
 }

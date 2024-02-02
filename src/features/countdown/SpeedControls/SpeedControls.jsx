@@ -5,7 +5,7 @@ import "./SpeedControls.css";
 import Button from "../../../components/Button/Button";
 import { useSelector } from "react-redux";
 
-function SpeedControls(){
+function SpeedControls() {
   const msUpdateSpeed = useSelector(state => state.countdown?.msUpdateSpeed);
   const showMs = useSelector(state => state.countdown?.showMs);
 
@@ -13,7 +13,7 @@ function SpeedControls(){
 
   const msPeriods = [1, 10, 100, 1000];
 
-  function handleMsUpdateSpeed(value){
+  function handleMsUpdateSpeed(value) {
     dispatch(setMsUpdateSpeed(value));
   }
 
@@ -21,7 +21,7 @@ function SpeedControls(){
     <div
       className={`speed-controls ${enableIfSame(showMs, true)}`}
     >
-      <h2>Millisecond update speed</h2>
+      <h3>Millisecond update speed</h3>
       <div className="speed-buttons">
         {
           msPeriods.map((value, index) => (
