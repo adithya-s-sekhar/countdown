@@ -40,19 +40,23 @@
 @keyframes buttonOn {
   0% {
     border-bottom: 5px solid var(--button-enabled-background-color);
+    box-shadow: 0 13px 10px -8px var(----button-enabled-background-color);
   }
 
   100% {
     border-bottom: 2px solid var(--accent);
+    box-shadow: 0 10px 10px -8px var(--accent);
   }
 }
 
 @keyframes buttonOff {
   0% {
-    border-bottom: 2px solid var(--button-enabled-background-color);
+    border-bottom: 2px solid var(--accent);
+    box-shadow: 0 10px 10px -8px var(--accent);
   }
 
   100% {
     border-bottom: 5px solid var(--button-enabled-background-color);
+    box-shadow: 0 13px 10px -8px var(--button-enabled-background-color);
   }
 }
