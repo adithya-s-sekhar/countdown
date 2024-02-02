@@ -18,14 +18,14 @@
 }
 
 .button.enabled {
-  background-color: var(--button-enabled-background-color);
-  color: var(--button-enabled-font-color);
+  background-color: var(--button-disabled-background-color);
+  color: var(--button-disabled-font-color);
   animation: buttonOn .2s ease-out;
-  box-shadow: 0 10px 10px -8px var(--shadow-color);
-  border-top: 5px solid var(--accent);
+  box-shadow: 0 10px 10px -8px var(--accent);
+  border-bottom: 2px solid var(--accent);
 }
 
-.button.no-animation.disabled {
+/* .button.no-animation.disabled {
   animation: none;
   border-bottom: 0;
   font-size: 14px;
@@ -33,23 +33,23 @@
 
 .button.no-animation.enabled {
   animation: none;
-  border-top: 0;
+  border-bottom: 0;
   font-size: 14px;
-}
+} */
 
 @keyframes buttonOn {
   0% {
-    border-top: 1px solid var(--accent);
+    border-bottom: 5px solid var(--button-enabled-background-color);
   }
 
   100% {
-    border-top: 5px solid var(--accent);
+    border-bottom: 2px solid var(--accent);
   }
 }
 
 @keyframes buttonOff {
   0% {
-    border-bottom: 1px solid var(--button-enabled-background-color);
+    border-bottom: 2px solid var(--button-enabled-background-color);
   }
 
   100% {
