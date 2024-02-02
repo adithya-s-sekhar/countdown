@@ -35,4 +35,15 @@ body {
   padding: 8px;
   font-family: var(--body-font);
   color: var(--body-font-color);
+  animation: body .75s ease-out;
+}
+
+@keyframes body {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
