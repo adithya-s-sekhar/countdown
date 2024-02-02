@@ -1,4 +1,4 @@
-.speed-controls{
+.speed-controls {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,12 +13,12 @@
   gap: 10px;
 }
 
-.speed-controls.enabled{
+.speed-controls.enabled {
   visibility: visible;
-  height: auto;
+  /* height: auto; */
 }
 
-.speed-controls.disabled{
+.speed-controls.disabled {
   visibility: hidden;
-  height: 0;
+  /* height: 0; */
 }

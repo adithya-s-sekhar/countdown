@@ -6,36 +6,34 @@
   border-radius: 8px;
   cursor: pointer;
   font-family: var(--button-font);
-  box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.75);
+  outline: 2px solid var(--button-enabled-background-color);
 }
 
 .button.disabled {
   background-color: var(--button-disabled-background-color);
   color: var(--button-disabled-font-color);
-  box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 13px 10px -8px rgba(0, 0, 0, 0.75);
+  border-bottom: 5px solid var(--button-enabled-background-color);
 }
 
 .button.enabled {
   background-color: var(--button-enabled-background-color);
   color: var(--button-enabled-font-color);
   animation: shadow .20s ease-out;
-  box-shadow: 0 13px 10px -8px var(--shadow-color);
-  border-bottom: 5px solid var(--accent);
+  box-shadow: 0 10px 10px -8px var(--shadow-color);
+  border-top: 5px solid var(--accent);
 }
 
 @keyframes shadow {
   0% {
-    box-shadow: 0 13px 10px -8px var(--shadow-color);
-    transform: scale(1);
+    font-size: 14px;
   }
 
   50% {
-    box-shadow: 0 10px 10px -8px var(--shadow-color);
-    transform: scale(.96);
+    font-size: 12px;
   }
 
   100% {
-    box-shadow: 0 13px 10px -8px var(--shadow-color);
-    transform: scale(1);
+    font-size: 14px;
   }
 }
