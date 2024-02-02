@@ -18,14 +18,27 @@
   box-shadow: 0 15px 10px -8px var(--shadow-color);
 }
 
+.display>div:nth-of-type(odd) {
+  transform: rotate(4deg);
+}
+
+.display>div:nth-of-type(even) {
+  transform: rotate(-5deg);
+}
+
+.display>div:first-child {
+  transform: rotate(7deg);
+}
+
 .display>div:last-child {
   animation-name: bgcolor;
   animation-duration: 1s;
   animation-timing-function: ease-out;
   animation-iteration-count: infinite;
+  transform: rotate(10deg);
 }
 
-.display-item{
+.display-item {
   font-size: 40px;
   font-family: var(--display-item-font);
 }
